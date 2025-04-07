@@ -38,16 +38,17 @@
           })
         );
       }
+      url = new URL(url, document.baseURI);
       console.log(`Mock Server Response:`, {
         status: 200,
         ok: true,
-        url,
+        url: url.toString(),
         text: body2
       });
       return {
         status: 200,
         ok: true,
-        url,
+        url: url.toString(),
         text: () => Promise.resolve(body2)
       };
     });
